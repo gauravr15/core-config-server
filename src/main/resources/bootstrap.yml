@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: core-config-server
+
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:jdbc,dev}
+
+  cloud:
+    config:
+      server:
+
+        jdbc:
+          order: 1
+          sql: SELECT `KEY`, `VALUE` FROM PROPERTIES WHERE APPLICATION=? AND PROFILE=? AND LABEL=? AND IS_ACTIVE=1
+
+server:
+  servlet:
+    context-path: /core-config-server
+           
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL}
