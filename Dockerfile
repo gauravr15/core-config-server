@@ -2,7 +2,6 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-# Copy built JAR from root target directory
 COPY target/core-config-server-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 9008
@@ -11,7 +10,7 @@ ENV SPRING_PROFILES_ACTIVE=jdbc,production
 #ENV EUREKA_CLIENT_REGISTER_WITH_EUREKA=false
 #ENV EUREKA_CLIENT_FETCH_REGISTRY=false
 
-ENV SPRING_DATASOURCE_URL=jdbc:mariadb://mariadb:3306/core
+ENV SPRING_DATASOURCE_URL=jdbc:mariadb://143.110.251.244:3306/core
 ENV SPRING_DATASOURCE_USERNAME=root
 ENV SPRING_DATASOURCE_PASSWORD=BR-10h8352
 
